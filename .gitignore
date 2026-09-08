@@ -1,5 +1,8 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
 
+# agent skills (project-local, not for version control)
+.agents/
+
 # dependencies
 /node_modules
 /.pnp
