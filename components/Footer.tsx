@@ -28,18 +28,18 @@ export function Footer({ onOpenConcierge }: FooterProps) {
         <Reveal className="border-b border-white/20 pb-16 sm:pb-24 flex flex-col lg:flex-row lg:items-end justify-between gap-10">
           <div className="space-y-6 max-w-3xl">
             <div className="flex items-center gap-3 text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-white/80">
-              <span>Atelier Concierge</span>
+              <span>Contact</span>
               <span>/</span>
-              <span>Direct Engagements</span>
+              <span>Get in Touch</span>
             </div>
 
             <h2 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.05] tracking-tight text-white">
-              Let us craft intelligence <br />
-              <span className="italic font-light text-white/90">with enduring elegance.</span>
+              Let’s build practical solutions <br />
+              <span className="italic font-light text-white/90">with data and machine learning.</span>
             </h2>
 
             <p className="text-base sm:text-lg text-white/80 font-light leading-relaxed max-w-xl">
-              Accepting inquiries for machine learning architecture, predictive telemetry design, and strategic data advisory.
+              Open to conversations about data science roles, applied machine learning projects, and building data-driven products.
             </p>
           </div>
 
@@ -53,7 +53,7 @@ export function Footer({ onOpenConcierge }: FooterProps) {
               transition={springSnappy}
               className="px-8 py-4 bg-white text-[#9A4D3E] text-[11px] uppercase tracking-[0.22em] font-medium text-center"
             >
-              Initiate Inquiry
+              Get in Touch
             </motion.button>
             <motion.a
               href={`mailto:${PORTFOLIO_DATA.contact.email}`}
@@ -62,19 +62,19 @@ export function Footer({ onOpenConcierge }: FooterProps) {
               transition={springSnappy}
               className="px-8 py-4 border border-white/60 text-white text-[11px] uppercase tracking-[0.22em] text-center flex items-center justify-center gap-2"
             >
-              <span>Email Client</span>
+              <span>Send Email</span>
               <ArrowUpRight className="w-3.5 h-3.5" />
             </motion.a>
           </div>
         </Reveal>
 
-        {/* Minimalist 4-Column Luxury Concierge Grid */}
+        {/* Minimalist 4-Column Grid */}
         <Reveal className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-14 pt-4 text-white/90">
           
-          {/* Column 1: Maison & Identity */}
+          {/* Column 1: About & Identity */}
           <div className="space-y-4">
             <div className="text-[10px] uppercase tracking-[0.25em] text-white/60 font-medium pb-2 border-b border-white/20">
-              Maison
+              About
             </div>
             <div className="space-y-2">
               <p className="font-serif text-2xl tracking-wider text-white uppercase">
@@ -84,19 +84,19 @@ export function Footer({ onOpenConcierge }: FooterProps) {
                 {PORTFOLIO_DATA.title}
               </p>
               <p className="text-[11px] text-white/70 font-light pt-2">
-                Available for advisory, contracts, and engineering engagements.
+                {PORTFOLIO_DATA.contact.availability}
               </p>
             </div>
           </div>
 
-          {/* Column 2: Client Inquiries & Contact */}
+          {/* Column 2: Direct Contact */}
           <div className="space-y-4">
             <div className="text-[10px] uppercase tracking-[0.25em] text-white/60 font-medium pb-2 border-b border-white/20">
-              Direct Inquiries
+              Contact
             </div>
             <div className="space-y-3">
               <div>
-                <p className="text-[10px] uppercase tracking-wider text-white/60">Primary Channel</p>
+                <p className="text-[10px] uppercase tracking-wider text-white/60">Direct Email</p>
                 <a
                   href={`mailto:${PORTFOLIO_DATA.contact.email}`}
                   className="font-serif text-lg text-white hover:underline block pt-0.5"
@@ -121,37 +121,37 @@ export function Footer({ onOpenConcierge }: FooterProps) {
                 ) : (
                   <>
                     <Copy className="w-3 h-3" />
-                    <span>Copy Electronic Address</span>
+                    <span>Copy Email Address</span>
                   </>
                 )}
               </motion.button>
 
               <p className="text-xs text-white/75 font-light pt-2">
-                Inquiries typically answered within 24–48 business hours.
+                Typically answered within 24–48 hours.
               </p>
             </div>
           </div>
 
-          {/* Column 3: Atelier Capabilities */}
+          {/* Column 3: Capabilities */}
           <div className="space-y-4">
             <div className="text-[10px] uppercase tracking-[0.25em] text-white/60 font-medium pb-2 border-b border-white/20">
               Disciplines
             </div>
             <ul className="space-y-2 text-xs text-white/85 font-light">
               <li>
-                • End-to-End Recommendation Systems
+                • Predictive Modeling & Machine Learning
               </li>
               <li>
-                • Gradient Boosted Aerodynamic Models
+                • Recommender Systems & Search
               </li>
               <li>
-                • Spatial Point Pattern & Health Regressions
+                • Geospatial Analysis & Public Systems
               </li>
               <li>
-                • Containerized Microservice Inference
+                • Containerized Microservices & APIs
               </li>
               <li>
-                • Generative AI & Latent Vector Retrieval
+                • Applied AI & Product Engineering
               </li>
             </ul>
           </div>
@@ -159,7 +159,7 @@ export function Footer({ onOpenConcierge }: FooterProps) {
           {/* Column 4: Professional Networks */}
           <div className="space-y-4">
             <div className="text-[10px] uppercase tracking-[0.25em] text-white/60 font-medium pb-2 border-b border-white/20">
-              Networks & Register
+              Connect
             </div>
             <div className="space-y-2.5">
               {PORTFOLIO_DATA.contact.socials.map((soc) => (
@@ -178,12 +178,12 @@ export function Footer({ onOpenConcierge }: FooterProps) {
               ))}
 
               <motion.a
-                href="#lookbook"
+                href="#projects"
                 whileHover={{ x: 4, color: '#FFFFFF' }}
                 transition={springSnappy}
                 className="flex items-center justify-between py-1 text-xs text-white/90 border-b border-white/10"
               >
-                <span className="uppercase tracking-wider text-[11px]">Lookbook Archive</span>
+                <span className="uppercase tracking-wider text-[11px]">Selected Projects</span>
                 <ArrowUpRight className="w-3.5 h-3.5 text-white/60" />
               </motion.a>
             </div>

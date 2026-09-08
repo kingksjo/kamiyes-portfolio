@@ -61,11 +61,11 @@ export function IndexModal({ onClose, onSelectProject }: IndexModalProps) {
         <div className="sticky top-0 z-20 bg-[#FDFBF7]/95 backdrop-blur-md px-6 sm:px-8 py-5 border-b border-[#D8CFC4] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="text-[10px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium">
-              Archive Index
+              Project Index
             </span>
             <span className="text-[#D8CFC4]">/</span>
             <span className="text-[10px] uppercase tracking-[0.25em] text-[#59534E]">
-              Comprehensive Register
+              All Works
             </span>
           </div>
 
@@ -76,7 +76,7 @@ export function IndexModal({ onClose, onSelectProject }: IndexModalProps) {
             whileTap={{ scale: 0.94 }}
             transition={springSnappy}
             className="p-2 text-[#59534E] border border-[#D8CFC4]"
-            aria-label="Close archive index"
+            aria-label="Close project index"
           >
             <X className="w-4 h-4" />
           </motion.button>
@@ -91,7 +91,7 @@ export function IndexModal({ onClose, onSelectProject }: IndexModalProps) {
               id="index-search-input"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              placeholder="Search across models, algorithms, or regional studies..."
+              placeholder="Search by project name, technique, or tag..."
               className="w-full pl-11 pr-4 py-3 bg-[#FDFBF7] border border-[#D8CFC4] text-sm text-[#2C2724] placeholder-[#59534E]/60 focus:outline-none focus:border-[#9A4D3E]"
             />
           </div>
@@ -101,7 +101,7 @@ export function IndexModal({ onClose, onSelectProject }: IndexModalProps) {
         <div className="p-6 sm:p-8 divide-y divide-[#D8CFC4]/70">
           {filtered.length === 0 ? (
             <div className="py-12 text-center text-[#59534E] font-light text-sm">
-              No archival entries correspond to your search query.
+              No projects found matching your search query.
             </div>
           ) : (
             filtered.map((project) => (
@@ -151,7 +151,7 @@ export function IndexModal({ onClose, onSelectProject }: IndexModalProps) {
                     transition={springSnappy}
                     className="text-[9px] uppercase tracking-widest text-[#2C2724]"
                   >
-                    Inspect
+                    View
                   </motion.span>
                   <motion.span
                     variants={{

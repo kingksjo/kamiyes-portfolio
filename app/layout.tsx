@@ -4,6 +4,8 @@ import { SmoothScroll } from "@/components/SmoothScroll";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
+import { PORTFOLIO_DATA } from "@/lib/data";
+
 const cormorant = Cormorant_Garamond({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
@@ -20,20 +22,17 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Oluwakamiye Sharaye — Data Scientist",
-  description:
-    "Editorial portfolio for Oluwakamiye Sharaye, Data Scientist.",
+  title: `${PORTFOLIO_DATA.name} — ${PORTFOLIO_DATA.title}`,
+  description: `Editorial portfolio for ${PORTFOLIO_DATA.name}, ${PORTFOLIO_DATA.title}.`,
   openGraph: {
-    title: "Oluwakamiye Sharaye — Data Scientist",
-    description:
-      "Editorial portfolio for Oluwakamiye Sharaye, Data Scientist.",
+    title: `${PORTFOLIO_DATA.name} — ${PORTFOLIO_DATA.title}`,
+    description: `Editorial portfolio for ${PORTFOLIO_DATA.name}, ${PORTFOLIO_DATA.title}.`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Oluwakamiye Sharaye — Data Scientist",
-    description:
-      "Editorial portfolio for Oluwakamiye Sharaye, Data Scientist.",
+    title: `${PORTFOLIO_DATA.name} — ${PORTFOLIO_DATA.title}`,
+    description: `Editorial portfolio for ${PORTFOLIO_DATA.name}, ${PORTFOLIO_DATA.title}.`,
   },
 };
 

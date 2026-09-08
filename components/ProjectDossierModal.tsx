@@ -58,11 +58,11 @@ export function ProjectDossierModal({
         <div className="sticky top-0 z-20 bg-[#FDFBF7]/95 backdrop-blur-md px-6 sm:px-10 py-5 border-b border-[#D8CFC4] flex items-center justify-between">
           <div className="flex items-center gap-3">
             <span className="text-[10px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium">
-              {project.lookbookNumber}
+              Project {project.lookbookNumber}
             </span>
             <span className="text-[#D8CFC4]">/</span>
             <span className="text-[10px] uppercase tracking-[0.25em] text-[#59534E]">
-              Technical Dossier • {project.year}
+              Overview • {project.year}
             </span>
           </div>
 
@@ -73,7 +73,7 @@ export function ProjectDossierModal({
             whileTap={{ scale: 0.94 }}
             transition={springSnappy}
             className="p-2 text-[#59534E] border border-[#D8CFC4]"
-            aria-label="Close dossier"
+            aria-label="Close project modal"
           >
             <X className="w-4 h-4" />
           </motion.button>
@@ -98,7 +98,7 @@ export function ProjectDossierModal({
           {/* Visual Showcase + Metrics Split */}
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
             {/* Visual Plate */}
-            <div className="lg:col-span-7 relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden border border-[#D8CFC4] bg-[#F4F0EA]">
+            <div className={`${project.metrics && project.metrics.length > 0 ? 'lg:col-span-7' : 'lg:col-span-12'} relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden border border-[#D8CFC4] bg-[#F4F0EA]`}>
               <Image
                 src={project.image}
                 alt={project.imageAlt}
@@ -108,41 +108,43 @@ export function ProjectDossierModal({
                 referrerPolicy="no-referrer"
               />
               <div className="absolute top-3 left-3 bg-[#FDFBF7]/90 px-3 py-1 border border-[#D8CFC4] text-[9px] uppercase tracking-[0.25em] text-[#2C2724]">
-                Exhibit Visual Plate
+                Project Visual
               </div>
             </div>
 
             {/* Performance Metrics Plate */}
-            <div className="lg:col-span-5 p-6 sm:p-8 bg-[#F4F0EA] border border-[#D8CFC4] flex flex-col justify-between space-y-6">
-              <div className="space-y-4">
-                <div className="text-[10px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium border-b border-[#D8CFC4] pb-3">
-                  Empirical Performance Indices
+            {project.metrics && project.metrics.length > 0 && (
+              <div className="lg:col-span-5 p-6 sm:p-8 bg-[#F4F0EA] border border-[#D8CFC4] flex flex-col justify-between space-y-6">
+                <div className="space-y-4">
+                  <div className="text-[10px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium border-b border-[#D8CFC4] pb-3">
+                    Performance Metrics
+                  </div>
+                  
+                  <div className="space-y-5 pt-2">
+                    {project.metrics.map((metric) => (
+                      <div key={metric.label} className="flex flex-col">
+                        <span className="font-serif text-3xl sm:text-4xl text-[#2C2724] font-normal">
+                          {metric.value}
+                        </span>
+                        <span className="text-[10px] uppercase tracking-[0.2em] text-[#59534E] mt-1">
+                          {metric.label}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
-                
-                <div className="space-y-5 pt-2">
-                  {project.metrics.map((metric) => (
-                    <div key={metric.label} className="flex flex-col">
-                      <span className="font-serif text-3xl sm:text-4xl text-[#2C2724] font-normal">
-                        {metric.value}
-                      </span>
-                      <span className="text-[10px] uppercase tracking-[0.2em] text-[#59534E] mt-1">
-                        {metric.label}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
 
-              <div className="pt-4 border-t border-[#D8CFC4] text-[9px] uppercase tracking-[0.2em] text-[#59534E]">
-                Empirically validated on production telemetry
+                <div className="pt-4 border-t border-[#D8CFC4] text-[9px] uppercase tracking-[0.2em] text-[#59534E]">
+                  Validated on production dataset
+                </div>
               </div>
-            </div>
+            )}
           </div>
 
           {/* Detailed Synthesis & Architecture */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-6 border-t border-[#D8CFC4]">
             <div className="md:col-span-4 text-[11px] uppercase tracking-[0.25em] text-[#2C2724] font-medium">
-              Architectural Methodology
+              Overview & Approach
             </div>
             <div className="md:col-span-8 space-y-4">
               <p className="text-sm sm:text-base text-[#59534E] font-light leading-relaxed">
@@ -151,7 +153,7 @@ export function ProjectDossierModal({
               
               <div className="p-4 bg-[#F4F0EA] border border-[#D8CFC4]/80 mt-4 space-y-2">
                 <div className="text-[10px] uppercase tracking-[0.2em] text-[#9A4D3E] font-medium">
-                  Pipeline & Infrastructure
+                  Tech Stack & Architecture
                 </div>
                 <p className="text-xs text-[#2C2724] font-sans leading-relaxed">
                   {project.architecture}
@@ -163,7 +165,7 @@ export function ProjectDossierModal({
           {/* Tags & Classifications */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-6 border-t border-[#D8CFC4] items-center">
             <div className="md:col-span-4 text-[11px] uppercase tracking-[0.25em] text-[#2C2724] font-medium">
-              Taxonomy & Domain
+              Technologies & Tags
             </div>
             <div className="md:col-span-8 flex flex-wrap gap-2">
               {project.tags.map((tag) => (
@@ -180,7 +182,7 @@ export function ProjectDossierModal({
           {/* Bottom Action Drawer */}
           <div className="pt-8 border-t border-[#D8CFC4] flex flex-col sm:flex-row items-center justify-between gap-4">
             <div className="text-xs text-[#59534E] font-light">
-              Interested in implementing or licensing a comparable model architecture?
+              Interested in discussing this project or building something similar?
             </div>
             
             <div className="flex items-center gap-3 w-full sm:w-auto">
@@ -194,7 +196,7 @@ export function ProjectDossierModal({
                 transition={springSnappy}
                 className="flex-1 sm:flex-none px-6 py-3 bg-[#9A4D3E] text-white text-[10px] uppercase tracking-[0.22em] text-center"
               >
-                Inquire Regarding This Model
+                Discuss This Project
               </motion.button>
               <motion.button
                 onClick={onClose}

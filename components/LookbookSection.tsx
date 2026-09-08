@@ -133,7 +133,7 @@ function LookbookCard({ project, onSelect }: { project: Project; onSelect: (proj
           >
             <span className="text-[10px] uppercase tracking-[0.2em] text-[#2C2724] flex items-center gap-1.5 font-medium">
               <Eye className="w-3 h-3 text-[#9A4D3E]" />
-              Inspect Dossier
+              View Project
             </span>
             <ArrowUpRight className="w-3.5 h-3.5 text-[#9A4D3E]" />
           </motion.div>
@@ -202,29 +202,30 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
       );
 
   return (
-    <section id="lookbook" className="w-full py-24 sm:py-32 lg:py-44 border-b border-[#D8CFC4]">
+    <section id="projects" className="w-full py-24 sm:py-32 lg:py-44 border-b border-[#D8CFC4]">
+      {/* Anchor alias for backward compatibility */}
+      <div id="lookbook" className="hidden" />
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
 
-        {/* Section Header: Editorial Lookbook Masthead */}
+        {/* Section Header: Projects Masthead */}
         <Reveal className="flex flex-col md:flex-row md:items-end justify-between pb-12 sm:pb-16 border-b border-[#D8CFC4]/70 gap-8">
           <div className="space-y-4 max-w-2xl">
             <div className="flex items-center gap-3">
               <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium">
-                The Lookbook
+                Selected Work
               </span>
               <span className="text-[#D8CFC4]">/</span>
               <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#59534E]">
-                Selected Works 2023–2024
+                2023–2024
               </span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#2C2724] font-normal tracking-[-0.01em]">
-              Exemplars of Applied Intelligence
+              Applied Machine Learning & Systems
             </h2>
 
             <p className="text-sm sm:text-base text-[#59534E] font-light leading-relaxed">
-              Curated data science solutions designed with algorithmic rigor and production refinement.
-              Each entry represents a bespoke response to complex organizational and aerodynamic realities.
+              A selection of end-to-end machine learning, predictive modeling, and data science projects built to solve practical product and organizational problems.
             </p>
           </div>
 
@@ -258,9 +259,9 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
                 variants={pillVariants}
                 transition={springSnappy}
                 className="px-3 py-1 text-[9px] uppercase tracking-[0.2em]"
-                title="Vertical Lookbook View"
+                title="Grid View"
               >
-                Lookbook
+                Grid
               </motion.button>
               <motion.button
                 onClick={() => setViewMode('editorial')}
@@ -268,9 +269,9 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
                 variants={pillVariants}
                 transition={springSnappy}
                 className="px-3 py-1 text-[9px] uppercase tracking-[0.2em]"
-                title="Expanded Editorial List"
+                title="List View"
               >
-                Index
+                List
               </motion.button>
             </div>
           </div>
@@ -339,7 +340,7 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
                     transition={springSnappy}
                     className="text-[10px] uppercase tracking-[0.2em] text-[#2C2724]"
                   >
-                    Read Dossier
+                    View Project
                   </motion.span>
                   <motion.span
                     whileHover={{ x: 4, y: -4 }}
@@ -354,10 +355,10 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
           </div>
         )}
 
-        {/* Lookbook Colophon Note */}
+        {/* Section Colophon Note */}
         <Reveal className="mt-20 pt-10 border-t border-[#D8CFC4]/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[10px] uppercase tracking-[0.22em] text-[#59534E]">
-          <span>Archive Volume I • Rigorously Documented</span>
-          <span>Inquiries for custom machine learning architecture welcomed</span>
+          <span>Documented Case Studies</span>
+          <span>Open to collaboration on applied machine learning projects</span>
         </Reveal>
 
       </div>

@@ -23,7 +23,7 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[#FDFBF7]/90 backdrop-blur-md border-b border-[#D8CFC4] transition-all">
-      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
+      <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-16 sm:h-20 flex items-center justify-between">
         
         {/* Left: Brand Link */}
         <div className="flex items-center">
@@ -37,12 +37,12 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
               transition={springSnappy}
               className="font-serif text-2xl sm:text-3xl font-normal text-[#2C2724]"
             >
-              {PORTFOLIO_DATA.shortName}
+              {PORTFOLIO_DATA.name}
             </motion.span>
           </a>
         </div>
 
-        {/* Right Edge: Minimalist Navigation & Concierge */}
+        {/* Right Edge: Minimalist Navigation & Contact */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
           <motion.button
             onClick={onOpenIndex}
@@ -50,20 +50,20 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
             whileHover={{ color: '#2C2724' }}
             transition={springSnappy}
             className="text-[11px] uppercase tracking-[0.2em] text-[#59534E] flex items-center gap-1.5"
-            title="Open Lookbook Index"
+            title="Open Project Index"
           >
             <Search className="w-3.5 h-3.5" />
             <span>Index</span>
           </motion.button>
 
           <motion.a
-            href="#lookbook"
-            id="nav-lookbook-link"
+            href="#projects"
+            id="nav-projects-link"
             whileHover={{ color: '#2C2724' }}
             transition={springSnappy}
             className="text-[11px] uppercase tracking-[0.2em] text-[#59534E]"
           >
-            Lookbook
+            Projects
           </motion.a>
 
           <motion.a
@@ -84,7 +84,7 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
             transition={springSnappy}
             className="inline-flex items-center gap-2 px-4 py-2 text-[10px] uppercase tracking-[0.22em] text-[#2C2724] border border-[#2C2724]"
           >
-            <span>Inquiry</span>
+            <span>Contact</span>
             <ArrowUpRight className="w-3 h-3" />
           </motion.button>
         </div>
@@ -138,13 +138,13 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
               Introduction
             </motion.a>
             <motion.a
-              href="#lookbook"
+              href="#projects"
               onClick={() => setMobileMenuOpen(false)}
               whileHover={{ color: '#9A4D3E', x: 4 }}
               transition={springSnappy}
               className="font-serif text-2xl text-[#2C2724]"
             >
-              The Lookbook (Works)
+              Projects
             </motion.a>
             <motion.a
               href="#disciplines"
@@ -153,7 +153,7 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
               transition={springSnappy}
               className="font-serif text-2xl text-[#2C2724]"
             >
-              Atelier Disciplines
+              Disciplines
             </motion.a>
             <motion.button
               onClick={() => {
@@ -164,7 +164,7 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
               transition={springSnappy}
               className="font-serif text-2xl text-left text-[#2C2724]"
             >
-              Catalog Index
+              Project Index
             </motion.button>
           </div>
 
@@ -178,7 +178,7 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
               transition={springSnappy}
               className="w-full py-3 text-center text-[11px] uppercase tracking-[0.2em] bg-[#9A4D3E] text-white"
             >
-              Concierge Inquiry
+              Contact Kamiye
             </motion.button>
             <p className="text-center text-[10px] uppercase tracking-widest text-[#59534E]">
               {PORTFOLIO_DATA.title}

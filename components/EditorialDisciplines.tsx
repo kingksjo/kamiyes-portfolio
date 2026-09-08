@@ -31,28 +31,28 @@ export function EditorialDisciplines() {
           <Reveal className="lg:col-span-8 space-y-4">
             <div className="flex items-center gap-3">
               <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium">
-                The Analytical Method
+                Methodology
               </span>
               <span className="text-[#D8CFC4]">/</span>
               <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#59534E]">
-                Atelier Principles
+                Engineering Principles
               </span>
             </div>
 
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#2C2724] font-normal leading-[1.1]">
-              Mathematical Discipline <br />
-              <span className="italic text-[#9A4D3E] font-light">meets</span> Tailored Precision
+              Mathematical Rigor <br />
+              <span className="italic text-[#9A4D3E] font-light">meets</span> Practical Engineering
             </h2>
           </Reveal>
 
           <Reveal delay={0.15} className="lg:col-span-4">
             <p className="text-sm sm:text-base text-[#59534E] font-light leading-relaxed">
-              We reject black-box opacity and fragile heuristics. Every algorithmic model is cut and tailored like bespoke fabric—fitted to exact operational constraints, measurable return, and systemic stability.
+              Machine learning delivers the most value when paired with thoughtful engineering. Every model is built for operational stability, clean integration, and measurable business outcomes.
             </p>
           </Reveal>
         </div>
 
-        {/* 3 Pillars Grid with Massive Padding & Editorial Lines */}
+        {/* 3 Pillars Grid with Editorial Lines */}
         <motion.div
           variants={pillarContainer}
           initial="hidden"
@@ -76,7 +76,7 @@ export function EditorialDisciplines() {
                       {item.num}
                     </span>
                     <span className="text-[10px] uppercase tracking-[0.25em] text-[#59534E] font-medium">
-                      Atelier Pillar
+                      Core Discipline
                     </span>
                   </div>
 
@@ -102,11 +102,11 @@ export function EditorialDisciplines() {
           })}
         </motion.div>
 
-        {/* High-Fashion Quote Card / Manifesto */}
+        {/* Statement Card */}
         <Reveal className="mt-20 sm:mt-28 p-8 sm:p-12 lg:p-16 border border-[#D8CFC4] bg-[#FDFBF7] flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
           <div className="max-w-2xl space-y-2">
             <p className="font-serif text-xl sm:text-2xl lg:text-3xl italic text-[#2C2724] leading-relaxed">
-              &ldquo;Data is not merely an asset to exploit; it is raw material to be sculpted with empirical honesty and aesthetic grace.&rdquo;
+              &ldquo;The real value of machine learning isn’t theoretical complexity—it’s turning complex data into dependable solutions that empower people.&rdquo;
             </p>
             <p className="text-[10px] uppercase tracking-[0.25em] text-[#59534E]">
               {PORTFOLIO_DATA.name} • {PORTFOLIO_DATA.title}
@@ -115,7 +115,7 @@ export function EditorialDisciplines() {
 
           <div className="shrink-0 flex items-center gap-4">
             <div className="w-12 h-12 rounded-full border border-[#D8CFC4] flex items-center justify-center bg-[#F4F0EA]">
-              <span className="font-serif text-lg text-[#9A4D3E] italic">OS</span>
+              <span className="font-serif text-lg text-[#9A4D3E] italic">{PORTFOLIO_DATA.initials}</span>
             </div>
           </div>
         </Reveal>

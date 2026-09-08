@@ -30,15 +30,15 @@ export default function HomePage() {
         onOpenConcierge={() => setIsConciergeOpen(true)}
       />
 
-      {/* Lookbook Gallery */}
+      {/* Projects Section */}
       <LookbookSection
         onSelectProject={(project) => setSelectedProject(project)}
       />
 
-      {/* Editorial Disciplines & Principles */}
+      {/* Disciplines Section */}
       <EditorialDisciplines />
 
-      {/* Massive Solid Terracotta Footer */}
+      {/* Footer */}
       <Footer
         onOpenConcierge={() => setIsConciergeOpen(true)}
       />

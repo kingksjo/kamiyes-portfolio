@@ -41,42 +41,20 @@ export function Hero({ onOpenConcierge }: HeroProps) {
   );
 
   return (
-    <section ref={sectionRef} id="hero" className="relative w-full pt-12 pb-20 sm:pt-20 sm:pb-32 lg:pt-24 lg:pb-36 border-b border-[#D8CFC4]/70">
+    <section ref={sectionRef} id="hero" className="relative w-full pt-8 pb-14 sm:pt-10 sm:pb-20 lg:pt-12 lg:pb-24 border-b border-[#D8CFC4]/70">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
 
-        {/* Subtle Top Editorial Eyebrow / Catalog Meta */}
-        <motion.div
-          initial={{ opacity: 0, y: 24 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7, ease: [0.21, 0.47, 0.32, 0.98] }}
-          className="flex flex-col sm:flex-row sm:items-center justify-between pb-8 sm:pb-12 border-b border-[#D8CFC4]/50 gap-4"
-        >
-          <div className="flex items-center gap-3">
-            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium">
-              Collection N° 01
-            </span>
-            <span className="text-[#D8CFC4]">/</span>
-            <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#59534E]">
-              Data Science & Applied AI
-            </span>
-          </div>
-
-          <div className="flex items-center text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#59534E]">
-            <span>Bespoke Algorithmic Craft</span>
-          </div>
-        </motion.div>
-
         {/* Main Editorial Split Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 pt-12 sm:pt-16 lg:pt-20 items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 xl:gap-16 items-stretch">
           
           {/* Left Column: Typography Showcase */}
           <motion.div
             variants={heroContainer}
             initial="hidden"
             animate="visible"
-            className="lg:col-span-7 flex flex-col justify-between space-y-10 lg:space-y-16"
+            className="lg:col-span-7 flex flex-col justify-between space-y-6 lg:space-y-8"
           >
-            <div className="space-y-8">
+            <div className="space-y-4 sm:space-y-5">
 
               {/* Refined Small Label */}
               <motion.div
@@ -84,43 +62,43 @@ export function Hero({ onOpenConcierge }: HeroProps) {
                 className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4F0EA] border border-[#D8CFC4]/60 text-[10px] uppercase tracking-[0.25em] text-[#59534E]"
               >
                 <span className="w-1.5 h-1.5 rounded-full bg-[#9A4D3E]" />
-                Oluwakamiye Sharaye — Atelier Dossier
+                {PORTFOLIO_DATA.name} — Portfolio
               </motion.div>
 
               {/* Large, Elegant Serif Statement */}
               <motion.h1
                 variants={heroItem}
-                className="font-serif text-4xl sm:text-5xl lg:text-6xl xl:text-[68px] leading-[1.08] tracking-[-0.01em] text-[#2C2724] font-normal"
+                className="font-serif text-3xl sm:text-4xl lg:text-[44px] xl:text-[48px] leading-[1.16] tracking-[-0.01em] text-[#2C2724] font-normal"
               >
-                Applying machine learning, statistical modeling, and generative AI to{' '}
-                <span className="italic font-light text-[#9A4D3E]">business</span> and{' '}
-                <span className="italic font-light text-[#2C2724]">product</span> problems.
+                {PORTFOLIO_DATA.heroStatement}
               </motion.h1>
 
-              {/* Editorial Subtext */}
-              <motion.p
-                variants={heroItem}
-                className="max-w-xl text-base sm:text-lg text-[#59534E] leading-relaxed font-light"
-              >
-                {PORTFOLIO_DATA.ethos}
-              </motion.p>
+              {/* Subtext */}
+              {PORTFOLIO_DATA.heroSubtext ? (
+                <motion.p
+                  variants={heroItem}
+                  className="max-w-xl text-sm sm:text-base text-[#59534E] leading-relaxed font-light"
+                >
+                  {PORTFOLIO_DATA.heroSubtext}
+                </motion.p>
+              ) : null}
             </div>
 
             {/* Bottom Actions & Metadata */}
             <motion.div
               variants={heroItem}
-              className="pt-6 border-t border-[#D8CFC4]/50 flex flex-wrap items-center justify-between gap-6"
+              className="pt-6 sm:pt-8 border-t border-[#D8CFC4]/50 flex flex-wrap items-center justify-between gap-4"
             >
               <div className="flex items-center gap-4">
                 <motion.a
-                  href="#lookbook"
+                  href="#projects"
                   id="hero-explore-btn"
                   whileHover={{ y: -2, backgroundColor: '#9A4D3E' }}
                   whileTap={{ scale: 0.97 }}
                   transition={springSnappy}
-                  className="inline-flex items-center gap-3 px-6 py-3.5 bg-[#2C2724] text-[#FDFBF7] text-[11px] uppercase tracking-[0.22em]"
+                  className="inline-flex items-center gap-3 px-5 py-3 bg-[#2C2724] text-[#FDFBF7] text-[10px] uppercase tracking-[0.22em]"
                 >
-                  <span>Explore Lookbook</span>
+                  <span>View Projects</span>
                   <ArrowDown className="w-3.5 h-3.5" />
                 </motion.a>
 
@@ -130,14 +108,14 @@ export function Hero({ onOpenConcierge }: HeroProps) {
                   whileHover={{ y: -2, borderColor: '#2C2724' }}
                   whileTap={{ scale: 0.97 }}
                   transition={springSnappy}
-                  className="inline-flex items-center gap-2 px-6 py-3.5 border border-[#D8CFC4] text-[#2C2724] text-[11px] uppercase tracking-[0.22em] bg-transparent"
+                  className="inline-flex items-center gap-2 px-5 py-3 border border-[#D8CFC4] text-[#2C2724] text-[10px] uppercase tracking-[0.22em] bg-transparent"
                 >
-                  <span>Private Consultation</span>
+                  <span>Get in Touch</span>
                 </motion.button>
               </div>
 
               <div className="text-[10px] uppercase tracking-[0.2em] text-[#59534E]">
-                3 Featured Works Selected
+                3 Featured Projects
               </div>
             </motion.div>
           </motion.div>
@@ -149,7 +127,7 @@ export function Hero({ onOpenConcierge }: HeroProps) {
             transition={{ duration: 0.9, delay: 0.35, ease: [0.21, 0.47, 0.32, 0.98] }}
             className="lg:col-span-5 flex flex-col"
           >
-            <div className="relative w-full h-[460px] sm:h-[580px] lg:h-full min-h-[500px] border border-[#D8CFC4] p-3 sm:p-4 bg-[#F4F0EA] flex flex-col justify-between overflow-hidden">
+            <div className="relative w-full h-[360px] sm:h-[440px] lg:h-full min-h-[380px] lg:min-h-[440px] border border-[#D8CFC4] p-3 sm:p-4 bg-[#F4F0EA] flex flex-col justify-between overflow-hidden">
 
               {/* Inner Picture Container with scroll parallax and hover zoom */}
               <div className="relative w-full h-full overflow-hidden bg-[#EAE4DC]">
@@ -176,25 +154,25 @@ export function Hero({ onOpenConcierge }: HeroProps) {
                 {/* Corner Architectural Stamp */}
                 <div className="absolute top-4 left-4 z-10 bg-[#FDFBF7]/90 backdrop-blur-sm px-3 py-1.5 border border-[#D8CFC4]/80">
                   <p className="text-[9px] uppercase tracking-[0.25em] text-[#2C2724] font-medium">
-                    PLATE I — ARCHITECTURAL CADENCE
+                    Applied Data Science
                   </p>
                 </div>
 
                 {/* Bottom Caption Overlay */}
                 <div className="absolute bottom-4 left-4 right-4 z-10 text-white/95 space-y-1">
                   <p className="font-serif text-lg italic text-[#FDFBF7]">
-                    &ldquo;Form follows mathematical restraint.&rdquo;
+                    &ldquo;Turning complex data into practical products.&rdquo;
                   </p>
                   <p className="text-[9px] uppercase tracking-[0.2em] text-[#FDFBF7]/80">
-                    Precision Engineered Machine Learning
+                    Machine Learning & AI Engineering
                   </p>
                 </div>
               </div>
 
               {/* Bottom Architectural Caption Details */}
               <div className="mt-3 pt-2 border-t border-[#D8CFC4]/60 flex items-center justify-between text-[10px] uppercase tracking-[0.2em] text-[#59534E]">
-                <span>Figure 00 // Equilibrium</span>
-                <span>Ref. OS-2024-DS</span>
+                <span>Machine Learning Systems</span>
+                <span>Ref. {PORTFOLIO_DATA.initials}-2024</span>
               </div>
             </div>
           </motion.div>
