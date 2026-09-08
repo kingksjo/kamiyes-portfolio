@@ -25,14 +25,8 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
     <header className="sticky top-0 z-40 w-full bg-[#FDFBF7]/90 backdrop-blur-md border-b border-[#D8CFC4] transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
         
-        {/* Left Edge: Title Utility Metadata */}
-        <div className="hidden md:flex items-center gap-2 text-[11px] uppercase tracking-widest text-[#59534E]">
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#9A4D3E]" />
-          <span className="font-light">{PORTFOLIO_DATA.title}</span>
-        </div>
-
-        {/* Center: Monogram / Name in refined serif */}
-        <div className="flex flex-col items-center justify-center text-center">
+        {/* Left: Brand Link */}
+        <div className="flex items-center">
           <a
             href="#hero"
             className="block"
@@ -41,13 +35,10 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
             <motion.span
               whileHover={{ color: '#9A4D3E' }}
               transition={springSnappy}
-              className="font-serif text-xl sm:text-2xl lg:text-[26px] tracking-[0.2em] font-normal text-[#2C2724] uppercase"
+              className="font-serif text-2xl sm:text-3xl font-normal text-[#2C2724]"
             >
-              {PORTFOLIO_DATA.name}
+              {PORTFOLIO_DATA.shortName}
             </motion.span>
-            <span className="block text-[9px] uppercase tracking-[0.3em] text-[#59534E] mt-0.5">
-              Atelier of Sartorial Intelligence
-            </span>
           </a>
         </div>
 

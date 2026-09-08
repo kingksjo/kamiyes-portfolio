@@ -198,7 +198,7 @@ export function Footer({ onOpenConcierge }: FooterProps) {
           </div>
 
           <div className="text-center md:text-right">
-            Sartorial Intelligence Design System • Quiet Luxury Editorial Portfolio
+            Applied Machine Learning & Statistical Modeling
           </div>
         </div>
 

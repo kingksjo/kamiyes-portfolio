@@ -171,7 +171,7 @@ export function IndexModal({ onClose, onSelectProject }: IndexModalProps) {
 
         {/* Footer Note */}
         <div className="p-6 border-t border-[#D8CFC4] bg-[#F4F0EA]/30 text-center text-[10px] uppercase tracking-[0.2em] text-[#59534E]">
-          Sartorial Intelligence • Oluwakamiye Sharaye
+          {PORTFOLIO_DATA.name} • Portfolio Index
         </div>
 
       </motion.div>

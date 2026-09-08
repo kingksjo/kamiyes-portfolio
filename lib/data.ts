@@ -17,10 +17,11 @@ export interface Project {
 
 export const PORTFOLIO_DATA = {
   name: "Oluwakamiye Sharaye",
+  shortName: "Kamiye",
   initials: "OS",
   title: "Data Scientist",
   heroStatement: "Applying machine learning, statistical modeling, and generative AI to business and product problems.",
-  ethos: "Bridging empirical mathematical rigor with sartorial visual clarity. Each model is tailored with bespoke feature architecture, uncompromised precision, and measured restraint.",
+  ethos: "Bridging empirical mathematical rigor with architectural clarity. Each model is tailored with bespoke feature architecture, uncompromised precision, and measured restraint.",
   selectedProjects: [
     {
       id: "project-grapho",

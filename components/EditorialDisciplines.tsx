@@ -31,7 +31,7 @@ export function EditorialDisciplines() {
           <Reveal className="lg:col-span-8 space-y-4">
             <div className="flex items-center gap-3">
               <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium">
-                The Sartorial Method
+                The Analytical Method
               </span>
               <span className="text-[#D8CFC4]">/</span>
               <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#59534E]">

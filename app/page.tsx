@@ -19,13 +19,6 @@ export default function HomePage() {
 
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-[#2C2724] relative selection:bg-[#9A4D3E]/20">
-      {/* Top Subtle Atelier Ribbon */}
-      <div className="w-full bg-[#F4F0EA] border-b border-[#D8CFC4] py-1.5 px-4 text-center">
-        <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.25em] text-[#59534E]">
-          Sartorial Intelligence • Edition 2024–2026 • Curated Machine Learning Architecture
-        </p>
-      </div>
-
       {/* Navigation */}
       <Navbar
         onOpenConcierge={() => setIsConciergeOpen(true)}
