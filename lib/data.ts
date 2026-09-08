@@ -19,8 +19,6 @@ export const PORTFOLIO_DATA = {
   name: "Oluwakamiye Sharaye",
   initials: "OS",
   title: "Data Scientist",
-  location: "Kaduna, Nigeria",
-  coordinates: "10°31′ N 7°26′ E",
   heroStatement: "Applying machine learning, statistical modeling, and generative AI to business and product problems.",
   ethos: "Bridging empirical mathematical rigor with sartorial visual clarity. Each model is tailored with bespoke feature architecture, uncompromised precision, and measured restraint.",
   selectedProjects: [

@@ -22,18 +22,18 @@ const inter = Inter({
 export const metadata: Metadata = {
   title: "Oluwakamiye Sharaye — Data Scientist",
   description:
-    "High-fashion, quiet luxury editorial portfolio for Oluwakamiye Sharaye, Data Scientist based in Kaduna, Nigeria.",
+    "Editorial portfolio for Oluwakamiye Sharaye, Data Scientist.",
   openGraph: {
     title: "Oluwakamiye Sharaye — Data Scientist",
     description:
-      "High-fashion, quiet luxury editorial portfolio for Oluwakamiye Sharaye, Data Scientist based in Kaduna, Nigeria.",
+      "Editorial portfolio for Oluwakamiye Sharaye, Data Scientist.",
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
     title: "Oluwakamiye Sharaye — Data Scientist",
     description:
-      "High-fashion, quiet luxury editorial portfolio for Oluwakamiye Sharaye, Data Scientist based in Kaduna, Nigeria.",
+      "Editorial portfolio for Oluwakamiye Sharaye, Data Scientist.",
   },
 };
 

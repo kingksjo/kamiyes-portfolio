@@ -81,11 +81,10 @@ export function Footer({ onOpenConcierge }: FooterProps) {
                 {PORTFOLIO_DATA.name}
               </p>
               <p className="text-xs text-white/80 font-light leading-relaxed">
-                {PORTFOLIO_DATA.title} based in {PORTFOLIO_DATA.location}.
+                {PORTFOLIO_DATA.title}
               </p>
               <p className="text-[11px] text-white/70 font-light pt-2">
-                Coordinates: {PORTFOLIO_DATA.coordinates} <br />
-                Operating in West Africa Time (GMT+1).
+                Available for advisory, contracts, and engineering engagements.
               </p>
             </div>
           </div>

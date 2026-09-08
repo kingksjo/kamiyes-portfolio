@@ -197,14 +197,14 @@ export function ConciergeModal({ onClose }: ConciergeModalProps) {
             )}
           </form>
 
-          {/* Social Networks & Operational Base */}
+          {/* Social Networks & Availability */}
           <div className="pt-6 border-t border-[#D8CFC4] grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs text-[#59534E]">
             <div className="space-y-1">
               <span className="text-[9px] uppercase tracking-[0.2em] text-[#9A4D3E] font-medium block">
-                Atelier Location
+                Availability
               </span>
-              <p className="text-[#2C2724]">{PORTFOLIO_DATA.location}</p>
-              <p className="text-[11px] text-[#59534E]">GMT+1 (West Africa Time)</p>
+              <p className="text-[#2C2724]">Open to Advisory & Consulting</p>
+              <p className="text-[11px] text-[#59534E]">Remote & International</p>
             </div>
 
             <div className="space-y-1">

@@ -25,13 +25,9 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
     <header className="sticky top-0 z-40 w-full bg-[#FDFBF7]/90 backdrop-blur-md border-b border-[#D8CFC4] transition-all">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 h-20 sm:h-24 flex items-center justify-between">
         
-        {/* Left Edge: Geographical & Title Utility Metadata */}
-        <div className="hidden md:flex items-center gap-6 text-[11px] uppercase tracking-widest text-[#59534E]">
-          <span className="flex items-center gap-2">
-            <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#9A4D3E]" />
-            {PORTFOLIO_DATA.location}
-          </span>
-          <span className="text-[#D8CFC4]">|</span>
+        {/* Left Edge: Title Utility Metadata */}
+        <div className="hidden md:flex items-center gap-2 text-[11px] uppercase tracking-widest text-[#59534E]">
+          <span className="inline-block w-1.5 h-1.5 rounded-full bg-[#9A4D3E]" />
           <span className="font-light">{PORTFOLIO_DATA.title}</span>
         </div>
 
@@ -194,7 +190,7 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
               Concierge Inquiry
             </motion.button>
             <p className="text-center text-[10px] uppercase tracking-widest text-[#59534E]">
-              {PORTFOLIO_DATA.location}
+              {PORTFOLIO_DATA.title}
             </p>
           </div>
           </motion.div>

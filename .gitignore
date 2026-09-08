@@ -2,6 +2,7 @@
 
 # agent skills (project-local, not for version control)
 .agents/
+.artifacts/
 
 # dependencies
 /node_modules

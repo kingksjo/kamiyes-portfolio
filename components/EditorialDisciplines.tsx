@@ -109,7 +109,7 @@ export function EditorialDisciplines() {
               &ldquo;Data is not merely an asset to exploit; it is raw material to be sculpted with empirical honesty and aesthetic grace.&rdquo;
             </p>
             <p className="text-[10px] uppercase tracking-[0.25em] text-[#59534E]">
-              Oluwakamiye Sharaye • Data Scientist, Kaduna, Nigeria
+              {PORTFOLIO_DATA.name} • {PORTFOLIO_DATA.title}
             </p>
           </div>
 

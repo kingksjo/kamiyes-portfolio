@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import { motion, useReducedMotion, useScroll, useTransform, type Variants } from 'motion/react';
-import { ArrowDown, MapPin } from 'lucide-react';
+import { ArrowDown } from 'lucide-react';
 import { PORTFOLIO_DATA } from '@/lib/data';
 import { springSnappy } from '@/lib/motion';
 
@@ -61,13 +61,8 @@ export function Hero({ onOpenConcierge }: HeroProps) {
             </span>
           </div>
 
-          <div className="flex items-center gap-6 text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#59534E]">
-            <span className="flex items-center gap-1.5">
-              <MapPin className="w-3 h-3 text-[#9A4D3E]" />
-              {PORTFOLIO_DATA.coordinates}
-            </span>
-            <span className="hidden lg:inline text-[#D8CFC4]">•</span>
-            <span className="hidden lg:inline">Bespoke Algorithmic Craft</span>
+          <div className="flex items-center text-[10px] sm:text-[11px] uppercase tracking-[0.22em] text-[#59534E]">
+            <span>Bespoke Algorithmic Craft</span>
           </div>
         </motion.div>
 
@@ -191,7 +186,7 @@ export function Hero({ onOpenConcierge }: HeroProps) {
                     &ldquo;Form follows mathematical restraint.&rdquo;
                   </p>
                   <p className="text-[9px] uppercase tracking-[0.2em] text-[#FDFBF7]/80">
-                    Precision Engineered in Kaduna, Nigeria
+                    Precision Engineered Machine Learning
                   </p>
                 </div>
               </div>
