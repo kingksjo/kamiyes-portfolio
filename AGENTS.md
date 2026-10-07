@@ -23,7 +23,7 @@ Single-page editorial portfolio (`/` only) for Oluwakamiye Sharaye: Next.js 16 A
 The aesthetic is "quiet luxury editorial" — see `intent.md` for the philosophy. It must actively subvert developer-portfolio tropes. Forbidden: dark mode, terminal/neon UI, bento grids, glowing gradients, blue/purple accents, drop shadows beyond subtle borders.
 
 - Fixed palette, applied as literal hex arbitrary-value classes in components (not the `:root` vars in `globals.css`): `#FDFBF7` base, `#2C2724` text, `#F4F0EA` surface, `#D8CFC4` hairline borders, `#59534E` secondary text, `#9A4D3E` terracotta — terracotta is used sparingly (accents, italic emphasis) except the Footer, which is a solid terracotta block.
-- Fonts via `next/font/google` in `app/layout.tsx`: Cormorant Garamond (serif, `font-serif`, headings/quotes) and Inter (sans, `font-sans`, body/labels). The `.font-serif`/`.font-sans` utilities are manually defined in `app/globals.css`.
+- Fonts via `next/font/local` in `app/layout.tsx` (self-hosted variable woff2 files in `app/fonts/` — do not switch back to `next/font/google`): Cormorant Garamond (serif, `font-serif`, headings/quotes) and Inter (sans, `font-sans`, body/labels). The `.font-serif`/`.font-sans` utilities are manually defined in `app/globals.css`.
 - Editorial conventions: uppercase micro-labels with wide `tracking-[...]`, generous vertical padding between sections, grayscale/toned imagery via `next/image` filters.
 
 ## Doc vs. reality (read before following other docs)

@@ -1,22 +1,37 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import localFont from "next/font/local";
 import { SmoothScroll } from "@/components/SmoothScroll";
 import "lenis/dist/lenis.css";
 import "./globals.css";
 
 import { PORTFOLIO_DATA } from "@/lib/data";
 
-const cormorant = Cormorant_Garamond({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  style: ["normal", "italic"],
+const cormorant = localFont({
+  src: [
+    {
+      path: "./fonts/cormorant-garamond-latin.woff2",
+      weight: "300 700",
+      style: "normal",
+    },
+    {
+      path: "./fonts/cormorant-garamond-latin-italic.woff2",
+      weight: "300 700",
+      style: "italic",
+    },
+  ],
   variable: "--font-cormorant",
   display: "swap",
+  adjustFontFallback: "Times New Roman",
 });
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600"],
+const inter = localFont({
+  src: [
+    {
+      path: "./fonts/inter-latin.woff2",
+      weight: "300 600",
+      style: "normal",
+    },
+  ],
   variable: "--font-inter",
   display: "swap",
 });
