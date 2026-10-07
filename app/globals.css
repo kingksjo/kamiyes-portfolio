@@ -11,13 +11,16 @@
 
 html {
   background-color: #FDFBF7;
+  /* clip (not hidden) removes the horizontal scroll axis entirely on mobile
+     without creating a scroll container, so sticky + Lenis keep working */
+  overflow-x: clip;
 }
 
 body {
   background-color: #FDFBF7;
   color: #2C2724;
   font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 
 .font-serif {

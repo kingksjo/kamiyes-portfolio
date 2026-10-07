@@ -54,7 +54,7 @@ export function Hero({ onOpenConcierge }: HeroProps) {
         <TopologicalSurface />
       </motion.div>
 
-      {/* Gentle Vignette for text readability while keeping contour lines clearly visible */}
+      {/* Gentle Vignette for text readability while keeping the dot field clearly visible */}
       <div className="absolute inset-0 bg-gradient-to-r from-[#FDFBF7]/85 via-[#FDFBF7]/40 to-transparent pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">
@@ -64,15 +64,6 @@ export function Hero({ onOpenConcierge }: HeroProps) {
           animate="visible"
           className="max-w-4xl space-y-6 sm:space-y-8"
         >
-          {/* Refined Category Chip */}
-          <motion.div
-            variants={heroItem}
-            className="inline-flex items-center gap-2 px-3 py-1 bg-[#F4F0EA]/90 backdrop-blur-sm border border-[#D8CFC4]/70 text-[10px] uppercase tracking-[0.25em] text-[#59534E]"
-          >
-            <span className="w-1.5 h-1.5 rounded-full bg-[#9A4D3E]" />
-            {PORTFOLIO_DATA.name} — Portfolio
-          </motion.div>
-
           {/* Large, Elegant Serif Statement */}
           <motion.h1
             variants={heroItem}
@@ -96,7 +87,7 @@ export function Hero({ onOpenConcierge }: HeroProps) {
             variants={heroItem}
             className="pt-8 sm:pt-10 border-t border-[#D8CFC4]/60 flex flex-wrap items-center justify-between gap-6"
           >
-            <div className="flex items-center gap-4">
+            <div className="flex flex-wrap items-center gap-4">
               <motion.a
                 href="#projects"
                 id="hero-explore-btn"

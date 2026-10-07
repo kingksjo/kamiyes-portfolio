@@ -10,6 +10,11 @@ interface Ripple {
   intensity: number
 }
 
+// Vertical band (as a fraction of the hero height) occupied by the dot field.
+// Kept in the lower portion so the headline and copy above stay unobstructed.
+const BAND_START = 0.55
+const BAND_END = 1.02
+
 export function TopologicalSurface() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const containerRef = useRef<HTMLDivElement>(null)
@@ -51,7 +56,8 @@ export function TopologicalSurface() {
     let time = 0
     let isVisible = true
 
-    // Responsive high-DPI sizing
+    // Responsive high-DPI sizing (reset transform each time so repeated
+    // resizes/orientation changes don't compound the DPR scale)
     const resize = () => {
       const rect = container.getBoundingClientRect()
       const dpr = Math.min(window.devicePixelRatio || 1, 2)
@@ -63,7 +69,7 @@ export function TopologicalSurface() {
       canvas.style.width = `${width}px`
       canvas.style.height = `${height}px`
 
-      ctx.scale(dpr, dpr)
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0)
     }
 
     resize()
@@ -123,10 +129,11 @@ export function TopologicalSurface() {
         stateRef.current.targetY = ny
         stateRef.current.isHovered = true
 
-        // Spawn interactive shockwave ripple on tap/click
+        // Spawn interactive shockwave ripple on tap/click (y is band-normalized)
+        const bandY = Math.max(0, Math.min(1, (ny - BAND_START) / (BAND_END - BAND_START)))
         stateRef.current.ripples.push({
           x: nx,
-          y: ny,
+          y: bandY,
           radius: 0.01,
           intensity: 1.0,
         })
@@ -174,18 +181,26 @@ export function TopologicalSurface() {
 
       ctx.clearRect(0, 0, width, height)
 
-      // Layout geometry
-      const numSlices = 28
-      const startY = height * 0.1
-      const endY = height * 0.95
-      const pointsPerSlice = 75
+      // Layout geometry — dot field confined to the lower band of the hero.
+      // Sparser, slightly larger dots on narrow screens so they read as a
+      // dot field instead of merging into faint lines.
+      const isCompact = width < 640
+      const numSlices = isCompact ? 14 : 20
+      const startY = height * BAND_START
+      const endY = height * BAND_END
+      const pointsPerSlice = isCompact ? 40 : 64
+      const dotRadius = isCompact ? 1.5 : 1.05
       const leftPad = -width * 0.06
       const rightPad = width * 1.06
       const sliceWidth = rightPad - leftPad
 
+      // Cursor position mapped into the dot band (clamped, so hovering above
+      // the band still deflects the nearest top rows)
+      const cursorV = Math.max(0, Math.min(1, (s.y - BAND_START) / (BAND_END - BAND_START)))
+
       // Dynamic terracotta highlight slices
       // One slice follows cursor Y position when active
-      const cursorSliceIndex = Math.floor(numSlices * s.y)
+      const cursorSliceIndex = Math.floor(numSlices * cursorV)
       // Second slice stays as a subtle anchor near the golden ratio
       const anchorSliceIndex = Math.floor(numSlices * 0.44)
 
@@ -193,7 +208,7 @@ export function TopologicalSurface() {
         const v = i / (numSlices - 1)
         const baseY = startY + v * (endY - startY)
 
-        const points: { x: number; y: number }[] = []
+        const points: { x: number; y: number; r: number }[] = []
 
         for (let j = 0; j <= pointsPerSlice; j++) {
           const u = j / pointsPerSlice
@@ -202,7 +217,7 @@ export function TopologicalSurface() {
           // Envelope tapering at the left and right canvas edges
           const envelope = Math.pow(Math.sin(Math.PI * Math.max(0, Math.min(1, u))), 0.85)
 
-          // 1. Natural living breathing waves (higher visibility, layered harmonics)
+          // 1. Natural living breathing waves (layered harmonics)
           const wave1 = Math.sin(u * 5.4 + t * 0.85 + v * 3.6) * (24 * envelope)
           const wave2 = Math.cos(u * 7.8 - t * 0.65 + v * 2.2) * (16 * envelope)
           const wave3 = Math.sin(u * 2.8 + t * 0.4 + v * 1.6) * (18 * envelope)
@@ -216,7 +231,7 @@ export function TopologicalSurface() {
 
           // 3. Dynamic mouse attractor (magnetic deflection + speed wave)
           const dx = u - s.x
-          const dy = v - s.y
+          const dy = v - cursorV
           const distSq = dx * dx + dy * dy
           const attractorCore = Math.exp(-distSq / 0.035)
 
@@ -240,65 +255,40 @@ export function TopologicalSurface() {
           const elevation = wave1 + wave2 + wave3 + saddle + cursorDeflection + rippleElevation
           const y = baseY - elevation
 
-          points.push({ x, y })
+          // Dot size tapers with the envelope so the field dissolves at the edges
+          const r = dotRadius * (0.35 + 0.65 * envelope)
+
+          points.push({ x, y, r })
         }
-
-        // Fill underneath to create 3D tactile occlusion with parchment color (#FDFBF7)
-        ctx.beginPath()
-        ctx.moveTo(leftPad, height + 50)
-        ctx.lineTo(points[0].x, points[0].y)
-
-        for (let j = 1; j < points.length; j++) {
-          const prev = points[j - 1]
-          const curr = points[j]
-          const cpx = (prev.x + curr.x) / 2
-          const cpy = (prev.y + curr.y) / 2
-          ctx.quadraticCurveTo(prev.x, prev.y, cpx, cpy)
-        }
-        ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y)
-        ctx.lineTo(rightPad, height + 50)
-        ctx.closePath()
-
-        ctx.fillStyle = '#FDFBF7'
-        ctx.globalAlpha = 0.92
-        ctx.fill()
-
-        // Stroke top contour hairline curve
-        ctx.beginPath()
-        ctx.moveTo(points[0].x, points[0].y)
-        for (let j = 1; j < points.length; j++) {
-          const prev = points[j - 1]
-          const curr = points[j]
-          const cpx = (prev.x + curr.x) / 2
-          const cpy = (prev.y + curr.y) / 2
-          ctx.quadraticCurveTo(prev.x, prev.y, cpx, cpy)
-        }
-        ctx.lineTo(points[points.length - 1].x, points[points.length - 1].y)
 
         const isCursorSlice = i === cursorSliceIndex && s.isHovered
         const isAnchorSlice = i === anchorSliceIndex
 
+        // Batch all dots of a slice into a single path, then fill once
+        ctx.beginPath()
+        for (const p of points) {
+          ctx.moveTo(p.x + p.r, p.y)
+          ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2)
+        }
+
         if (isCursorSlice) {
-          ctx.strokeStyle = '#9A4D3E'
-          ctx.lineWidth = 1.6
+          ctx.fillStyle = '#9A4D3E'
           ctx.globalAlpha = 0.9
         } else if (isAnchorSlice) {
-          ctx.strokeStyle = '#9A4D3E'
-          ctx.lineWidth = 1.2
+          ctx.fillStyle = '#9A4D3E'
           ctx.globalAlpha = 0.55
         } else {
-          ctx.strokeStyle = '#2C2724'
-          ctx.lineWidth = 0.9
+          ctx.fillStyle = '#2C2724'
           // Perspective depth fading
           ctx.globalAlpha = 0.14 + 0.28 * Math.pow(v, 1.2)
         }
-        ctx.stroke()
+        ctx.fill()
       }
 
-      // Draw subtle interactive focal ring at cursor location
+      // Draw subtle interactive focal ring at cursor location (snapped to the band)
       if (s.isHovered) {
         const cx = leftPad + s.x * sliceWidth
-        const cy = startY + s.y * (endY - startY)
+        const cy = startY + cursorV * (endY - startY)
 
         ctx.save()
         ctx.strokeStyle = '#9A4D3E'
