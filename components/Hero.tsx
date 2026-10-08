@@ -82,12 +82,11 @@ export function Hero({ onOpenConcierge }: HeroProps) {
             </motion.p>
           ) : null}
 
-          {/* Bottom Actions & Metadata */}
+          {/* Bottom Actions */}
           <motion.div
             variants={heroItem}
-            className="pt-8 sm:pt-10 border-t border-[#D8CFC4]/60 flex flex-wrap items-center justify-between gap-6"
+            className="pt-8 sm:pt-10 flex flex-wrap items-center gap-4"
           >
-            <div className="flex flex-wrap items-center gap-4">
               <motion.a
                 href="#projects"
                 id="hero-explore-btn"
@@ -110,16 +109,6 @@ export function Hero({ onOpenConcierge }: HeroProps) {
               >
                 <span>Get in Touch</span>
               </motion.button>
-            </div>
-
-            <div className="flex items-center gap-4 text-[10px] uppercase tracking-[0.2em] text-[#59534E]">
-              <span className="hidden sm:inline">3 Featured Projects</span>
-              <span className="hidden sm:inline text-[#D8CFC4]">•</span>
-              <span className="flex items-center gap-1.5">
-                <span className="w-1.5 h-1.5 rounded-full bg-[#9A4D3E] animate-pulse" />
-                Interactive Field
-              </span>
-            </div>
           </motion.div>
         </motion.div>
       </div>

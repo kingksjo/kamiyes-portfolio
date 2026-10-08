@@ -30,13 +30,13 @@ export default function HomePage() {
         onOpenConcierge={() => setIsConciergeOpen(true)}
       />
 
+      {/* Disciplines Section */}
+      <EditorialDisciplines />
+
       {/* Projects Section */}
       <LookbookSection
         onSelectProject={(project) => setSelectedProject(project)}
       />
-
-      {/* Disciplines Section */}
-      <EditorialDisciplines />
 
       {/* Footer */}
       <Footer

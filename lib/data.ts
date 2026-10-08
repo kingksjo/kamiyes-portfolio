@@ -77,24 +77,29 @@ export const PORTFOLIO_DATA = {
       githubUrl: "https://github.com/kingksjo",
     }
   ],
+  disciplinesSection: {
+    eyebrow: "Disciplines",
+    title: "What I can do",
+    intro: "Three areas I work across, from models to products that people use."
+  },
   disciplines: [
     {
       num: "01",
-      title: "Predictive Modeling & Machine Learning",
-      description: "Building robust gradient-boosted models and supervised learning pipelines to predict critical events, detect anomalies, and extract patterns from real-world telemetry and business data.",
-      accent: "Supervised Learning • Telemetry Systems"
+      title: "Machine Learning",
+      description: "I build and evaluate AI models for prediction, classification, and personalization, from optimizing telemetry data to NLP classifiers and recommender systems, measured against real-world performance.",
+      capabilities: ["Predictive Modeling", "NLP", "Recommendation Systems", "Semantic Search"]
     },
     {
       num: "02",
-      title: "Recommender Systems & Search",
-      description: "Designing collaborative filtering, vector embeddings, and ranking algorithms that deliver relevant recommendations and scale smoothly in production services.",
-      accent: "Personalization • Production APIs"
+      title: "AI Engineering",
+      description: "I design and ship systems built on large language models, like RAG systems, Agents, and evaluation harnesses. So generative AI works reliably inside real products and workflows.",
+      capabilities: ["RAG Systems", "Fine-Tuning", "Agent Harness Engineering", "AI Eval Design and Analysis"]
     },
     {
       num: "03",
-      title: "Spatial Analytics & Empirical Research",
-      description: "Applying statistical analysis, spatial mapping, and demographic data to evaluate accessibility, understand geographical trends, and guide decision-making for public systems.",
-      accent: "Geospatial Analysis • Statistical Modeling"
+      title: "Software Engineering",
+      description: "I write production software around data, pipelines that move and transform it, APIs and dashboards that serve it — packaged in containers and deployed on cloud platforms.",
+      capabilities: ["Python & SQL", "Data Pipelines", "APIs & Dashboards", "Docker & Cloud"]
     }
   ],
   contact: {
@@ -103,6 +108,6 @@ export const PORTFOLIO_DATA = {
       { name: "LinkedIn", url: "https://www.linkedin.com/in/kamiye-sharaye" },
       { name: "GitHub", url: "https://github.com/kingksjo" }
     ],
-    availability: "Available to work on products that need machine learning to deliver value to users"
+    availability: "Available to work on products that need AI to deliver value to users"
   }
 };
