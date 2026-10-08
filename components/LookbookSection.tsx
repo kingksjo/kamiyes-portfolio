@@ -193,13 +193,9 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
   const [activeFilter, setActiveFilter] = useState<string>('All');
   const [viewMode, setViewMode] = useState<'gallery' | 'editorial'>('gallery');
 
-  const allTags = ['All', 'Machine Learning', 'Predictive Modeling', 'Statistical Analysis', 'Containerization'];
-
   const filteredProjects = activeFilter === 'All'
     ? PORTFOLIO_DATA.selectedProjects
-    : PORTFOLIO_DATA.selectedProjects.filter(p =>
-        p.tags.some(t => t.toLowerCase() === activeFilter.toLowerCase())
-      );
+    : PORTFOLIO_DATA.selectedProjects.filter(p => p.disciplines.includes(activeFilter));
 
   return (
     <section id="projects" className="w-full py-24 sm:py-32 lg:py-44 border-b border-[#D8CFC4]">
@@ -210,29 +206,23 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
         {/* Section Header: Projects Masthead */}
         <Reveal className="flex flex-col md:flex-row md:items-end justify-between pb-12 sm:pb-16 border-b border-[#D8CFC4]/70 gap-8">
           <div className="space-y-4 max-w-2xl">
-            <div className="flex items-center gap-3">
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium">
-                Selected Work
-              </span>
-              <span className="text-[#D8CFC4]">/</span>
-              <span className="text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#59534E]">
-                2023–2024
-              </span>
-            </div>
+            <span className="block text-[10px] sm:text-[11px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium">
+              {PORTFOLIO_DATA.projectsSection.eyebrow}
+            </span>
 
             <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#2C2724] font-normal tracking-[-0.01em]">
-              Applied Machine Learning & Systems
+              {PORTFOLIO_DATA.projectsSection.title}
             </h2>
 
             <p className="text-sm sm:text-base text-[#59534E] font-light leading-relaxed">
-              A selection of end-to-end machine learning, predictive modeling, and data science projects built to solve practical product and organizational problems.
+              {PORTFOLIO_DATA.projectsSection.intro}
             </p>
           </div>
 
           {/* Controls: Filter Pills & View Toggle */}
           <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
             <div className="flex flex-wrap items-center gap-2">
-              {allTags.map((tag) => (
+              {PORTFOLIO_DATA.projectsSection.filters.map((tag) => (
                 <motion.button
                   key={tag}
                   onClick={() => setActiveFilter(tag)}

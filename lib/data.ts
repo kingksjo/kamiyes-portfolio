@@ -7,6 +7,7 @@ export interface Project {
   description: string;
   longDescription: string;
   tags: string[];
+  disciplines: string[];
   metrics?: { label: string; value: string }[];
   architecture: string;
   image: string;
@@ -33,6 +34,7 @@ export const PORTFOLIO_DATA = {
       description: "An end-to-end recommendation system using collaborative filtering and content-based algorithms.",
       longDescription: "An end-to-end recommendation engine designed to deliver personalized movie suggestions in real time. Combines collaborative filtering and matrix factorization with content-based embeddings, handling cold-start challenges for new users and keeping API response times low under production workloads.",
       tags: ["Machine Learning", "Software Development", "Recommendation Systems"],
+      disciplines: ["Machine Learning", "Software Engineering"],
       architecture: "FastAPI microservice containerized with Docker, Scikit-Learn, and cosine similarity ranking.",
       image: "https://images.unsplash.com/photo-1544816155-12df9643f363?q=80&w=1200&auto=format&fit=crop",
       imageAlt: "Minimalist abstract pattern representing collaborative filtering and user-item interaction networks",
@@ -47,6 +49,7 @@ export const PORTFOLIO_DATA = {
       description: "An XGBoost machine learning model designed to identify flow separation in UAVs before it happens.",
       longDescription: "A machine learning model developed to predict flow separation and stall events in unmanned aerial vehicles (UAVs) using flight telemetry. By training gradient boosted decision trees on boundary-layer pressure differentials and sensor streams, the model gives operators and flight computers actionable early warnings before turbulence compromises stability.",
       tags: ["XGBoost", "Predictive Modeling", "UAVs"],
+      disciplines: ["Machine Learning"],
       metrics: [
         { label: "Stall Forecasting AUC", value: "0.962" },
         { label: "Lead Warning Window", value: "1.85 sec" },
@@ -66,6 +69,7 @@ export const PORTFOLIO_DATA = {
       description: "Comprehensive statistical analysis and visualization identifying critical gaps in regional health systems.",
       longDescription: "A geospatial analysis of primary, secondary, and tertiary health facilities across Kaduna State, Nigeria. Using spatial point process modeling and GIS mapping, the project identifies underserved areas, evaluates maternal healthcare accessibility, and highlights opportunities for resource allocation and supply logistics.",
       tags: ["Statistical Analysis", "Data Visualization", "Research"],
+      disciplines: ["Machine Learning", "Software Engineering"],
       metrics: [
         { label: "Facilities Mapped", value: "1,420+" },
         { label: "Spatial Access Optimization", value: "+42%" },
@@ -77,6 +81,22 @@ export const PORTFOLIO_DATA = {
       githubUrl: "https://github.com/kingksjo",
     }
   ],
+  projectsSection: {
+    eyebrow: "Projects",
+    title: "Work I've done",
+    intro: "Some projects i've worked on and contributed to",
+    filters: ["All", "Machine Learning", "AI Engineering", "Software Engineering"]
+  },
+  projectsSummary: {
+    work: {
+      label: "Work I've done",
+      text: "Recommender systems, a flight-safety forecasting model, and a geospatial health access study, each taken from data to deployable output."
+    },
+    value: {
+      label: "How I've provided value",
+      text: "Stall forecasts at 0.962 AUC with a 1.4% false alarm ratio, +42% spatial access optimization, and 1,420+ facilities mapped for planning."
+    }
+  },
   disciplinesSection: {
     eyebrow: "Disciplines",
     title: "What I can do",
