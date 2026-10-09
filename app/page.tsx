@@ -10,20 +10,17 @@ import { CommunitySection } from '@/components/CommunitySection';
 import { Footer } from '@/components/Footer';
 import { ProjectDossierModal } from '@/components/ProjectDossierModal';
 import { ConciergeModal } from '@/components/ConciergeModal';
-import { IndexModal } from '@/components/IndexModal';
 import { Project } from '@/lib/data';
 
 export default function HomePage() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [isConciergeOpen, setIsConciergeOpen] = useState(false);
-  const [isIndexOpen, setIsIndexOpen] = useState(false);
 
   return (
     <main className="min-h-screen bg-[#FDFBF7] text-[#2C2724] relative selection:bg-[#9A4D3E]/20">
       {/* Navigation */}
       <Navbar
         onOpenConcierge={() => setIsConciergeOpen(true)}
-        onOpenIndex={() => setIsIndexOpen(true)}
       />
 
       {/* Hero Section */}
@@ -61,15 +58,6 @@ export default function HomePage() {
       <AnimatePresence>
         {isConciergeOpen && (
           <ConciergeModal onClose={() => setIsConciergeOpen(false)} />
-        )}
-      </AnimatePresence>
-
-      <AnimatePresence>
-        {isIndexOpen && (
-          <IndexModal
-            onClose={() => setIsIndexOpen(false)}
-            onSelectProject={(project) => setSelectedProject(project)}
-          />
         )}
       </AnimatePresence>
     </main>

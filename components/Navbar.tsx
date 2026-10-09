@@ -2,16 +2,15 @@
 
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowUpRight, Search, Mail, Check, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Mail, Check, Menu, X } from 'lucide-react';
 import { PORTFOLIO_DATA } from '@/lib/data';
 import { springSnappy } from '@/lib/motion';
 
 interface NavbarProps {
   onOpenConcierge: () => void;
-  onOpenIndex: () => void;
 }
 
-export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
+export function Navbar({ onOpenConcierge }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
 
@@ -44,18 +43,6 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
 
         {/* Right Edge: Minimalist Navigation & Contact */}
         <div className="hidden md:flex items-center gap-6 lg:gap-8">
-          <motion.button
-            onClick={onOpenIndex}
-            id="nav-catalogue-btn"
-            whileHover={{ color: '#2C2724' }}
-            transition={springSnappy}
-            className="text-[11px] uppercase tracking-[0.2em] text-[#59534E] flex items-center gap-1.5"
-            title="Open Project Index"
-          >
-            <Search className="w-3.5 h-3.5" />
-            <span>Index</span>
-          </motion.button>
-
           <motion.a
             href="#projects"
             id="nav-projects-link"
@@ -155,17 +142,6 @@ export function Navbar({ onOpenConcierge, onOpenIndex }: NavbarProps) {
             >
               Disciplines
             </motion.a>
-            <motion.button
-              onClick={() => {
-                setMobileMenuOpen(false);
-                onOpenIndex();
-              }}
-              whileHover={{ color: '#9A4D3E', x: 4 }}
-              transition={springSnappy}
-              className="font-serif text-2xl text-left text-[#2C2724]"
-            >
-              Project Index
-            </motion.button>
           </div>
 
           <div className="pt-4 border-t border-[#D8CFC4] flex flex-col space-y-3">
