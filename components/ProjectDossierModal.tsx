@@ -135,14 +135,16 @@ export function ProjectDossierModal({
                 {project.longDescription}
               </p>
               
-              <div className="p-4 bg-[#F4F0EA] border border-[#D8CFC4]/80 mt-4 space-y-2">
-                <div className="text-[10px] uppercase tracking-[0.2em] text-[#9A4D3E] font-medium">
-                  Tech Stack & Architecture
+              {project.architecture && (
+                <div className="p-4 bg-[#F4F0EA] border border-[#D8CFC4]/80 mt-4 space-y-2">
+                  <div className="text-[10px] uppercase tracking-[0.2em] text-[#9A4D3E] font-medium">
+                    Tech Stack & Architecture
+                  </div>
+                  <p className="text-xs text-[#2C2724] font-sans leading-relaxed">
+                    {project.architecture}
+                  </p>
                 </div>
-                <p className="text-xs text-[#2C2724] font-sans leading-relaxed">
-                  {project.architecture}
-                </p>
-              </div>
+              )}
             </div>
           </div>
 
