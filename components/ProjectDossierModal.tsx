@@ -1,7 +1,6 @@
 'use client';
 
 import React, { useEffect } from 'react';
-import Image from 'next/image';
 import { motion } from 'motion/react';
 import { useLenis } from 'lenis/react';
 import { X } from 'lucide-react';
@@ -96,25 +95,10 @@ export function ProjectDossierModal({
           </div>
 
           {/* Visual Showcase + Metrics Split */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
-            {/* Visual Plate */}
-            <div className={`${project.metrics && project.metrics.length > 0 ? 'lg:col-span-7' : 'lg:col-span-12'} relative aspect-[4/3] sm:aspect-[16/10] overflow-hidden border border-[#D8CFC4] bg-[#F4F0EA]`}>
-              <Image
-                src={project.image}
-                alt={project.imageAlt}
-                fill
-                className="object-cover object-center grayscale-[10%]"
-                sizes="(max-width: 1024px) 100vw, 60vw"
-                referrerPolicy="no-referrer"
-              />
-              <div className="absolute top-3 left-3 bg-[#FDFBF7]/90 px-3 py-1 border border-[#D8CFC4] text-[9px] uppercase tracking-[0.25em] text-[#2C2724]">
-                Project Visual
-              </div>
-            </div>
-
-            {/* Performance Metrics Plate */}
-            {project.metrics && project.metrics.length > 0 && (
-              <div className="lg:col-span-5 p-6 sm:p-8 bg-[#F4F0EA] border border-[#D8CFC4] flex flex-col justify-between space-y-6">
+          {project.metrics && project.metrics.length > 0 && (
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+              {/* Performance Metrics Plate */}
+              <div className="lg:col-span-12 p-6 sm:p-8 bg-[#F4F0EA] border border-[#D8CFC4] flex flex-col justify-between space-y-6">
                 <div className="space-y-4">
                   <div className="text-[10px] uppercase tracking-[0.25em] text-[#9A4D3E] font-medium border-b border-[#D8CFC4] pb-3">
                     Performance Metrics
@@ -135,11 +119,11 @@ export function ProjectDossierModal({
                 </div>
 
                 <div className="pt-4 border-t border-[#D8CFC4] text-[9px] uppercase tracking-[0.2em] text-[#59534E]">
-                  Validated on production dataset
+                  Key figures from the project
                 </div>
               </div>
-            )}
-          </div>
+            </div>
+          )}
 
           {/* Detailed Synthesis & Architecture */}
           <div className="grid grid-cols-1 md:grid-cols-12 gap-8 pt-6 border-t border-[#D8CFC4]">
@@ -185,7 +169,39 @@ export function ProjectDossierModal({
               Interested in discussing this project or building something similar?
             </div>
             
-            <div className="flex items-center gap-3 w-full sm:w-auto">
+            <div className="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 w-full sm:w-auto">
+              {project.githubUrl && (
+                <motion.a
+                  href={project.githubUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -2, borderColor: '#2C2724' }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={springSnappy}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 border border-[#D8CFC4] text-[#2C2724] text-[10px] uppercase tracking-[0.22em] whitespace-nowrap"
+                >
+                  <svg viewBox="0 0 16 16" aria-hidden="true" className="w-4 h-4 fill-current">
+                    <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z" />
+                  </svg>
+                  View on GitHub
+                </motion.a>
+              )}
+              {project.xUrl && (
+                <motion.a
+                  href={project.xUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ y: -2, borderColor: '#2C2724' }}
+                  whileTap={{ scale: 0.97 }}
+                  transition={springSnappy}
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 sm:px-6 py-3 border border-[#D8CFC4] text-[#2C2724] text-[10px] uppercase tracking-[0.22em] whitespace-nowrap"
+                >
+                  <svg viewBox="0 0 24 24" aria-hidden="true" className="w-3.5 h-3.5 fill-current">
+                    <path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z" />
+                  </svg>
+                  Read on X
+                </motion.a>
+              )}
               <motion.button
                 onClick={() => {
                   onClose();
@@ -194,7 +210,7 @@ export function ProjectDossierModal({
                 whileHover={{ y: -2, backgroundColor: '#833E31' }}
                 whileTap={{ scale: 0.97 }}
                 transition={springSnappy}
-                className="flex-1 sm:flex-none px-6 py-3 bg-[#9A4D3E] text-white text-[10px] uppercase tracking-[0.22em] text-center"
+                className="w-full sm:w-auto px-4 sm:px-6 py-3 bg-[#9A4D3E] text-white text-[10px] uppercase tracking-[0.22em] text-center whitespace-nowrap"
               >
                 Discuss This Project
               </motion.button>
@@ -203,7 +219,7 @@ export function ProjectDossierModal({
                 whileHover={{ y: -2, borderColor: '#2C2724' }}
                 whileTap={{ scale: 0.97 }}
                 transition={springSnappy}
-                className="px-6 py-3 border border-[#D8CFC4] text-[#2C2724] text-[10px] uppercase tracking-[0.22em]"
+                className="w-full sm:w-auto px-4 sm:px-6 py-3 border border-[#D8CFC4] text-[#2C2724] text-[10px] uppercase tracking-[0.22em] whitespace-nowrap"
               >
                 Close
               </motion.button>

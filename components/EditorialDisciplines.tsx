@@ -53,7 +53,7 @@ export function EditorialDisciplines() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: '-80px' }}
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 pt-10 sm:pt-14 divide-y md:divide-y-0 md:divide-x divide-[#D8CFC4]/70"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-0 pt-10 sm:pt-14 divide-y md:divide-y-0 md:divide-x divide-[#D8CFC4]/70"
         >
           {PORTFOLIO_DATA.disciplines.map((item, index) => {
             return (
