@@ -1,8 +1,8 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
 import { motion } from 'motion/react';
-import { ArrowUpRight, Copy, Check } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { PORTFOLIO_DATA } from '@/lib/data';
 import { Reveal } from '@/components/Reveal';
 import { springSnappy } from '@/lib/motion';
@@ -12,14 +12,6 @@ interface FooterProps {
 }
 
 export function Footer({ onOpenConcierge }: FooterProps) {
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(PORTFOLIO_DATA.contact.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2400);
-  };
-
   return (
     <footer id="contact" className="w-full bg-[#9A4D3E] text-white pt-24 pb-16 sm:pt-32 sm:pb-20 lg:pt-40 lg:pb-24 border-t border-[#833E31]">
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12 space-y-20 sm:space-y-28">
@@ -95,35 +87,15 @@ export function Footer({ onOpenConcierge }: FooterProps) {
               Contact
             </div>
             <div className="space-y-3">
-              <div>
-                <p className="text-[10px] uppercase tracking-wider text-white/60">Direct Email</p>
-                <a
-                  href={`mailto:${PORTFOLIO_DATA.contact.email}`}
-                  className="font-serif text-lg text-white hover:underline block pt-0.5"
-                >
-                  {PORTFOLIO_DATA.contact.email}
-                </a>
-              </div>
-
               <motion.button
-                onClick={handleCopyEmail}
-                id="footer-copy-email-btn"
+                onClick={onOpenConcierge}
                 whileHover={{ color: '#FFFFFF' }}
                 whileTap={{ scale: 0.97 }}
                 transition={springSnappy}
-                className="inline-flex items-center gap-2 text-[10px] uppercase tracking-wider text-white/80 pt-1"
+                className="inline-flex items-center gap-2 font-serif text-lg text-white hover:underline pt-0.5"
               >
-                {copied ? (
-                  <>
-                    <Check className="w-3 h-3 text-emerald-300" />
-                    <span>Copied to Clipboard</span>
-                  </>
-                ) : (
-                  <>
-                    <Copy className="w-3 h-3" />
-                    <span>Copy Email Address</span>
-                  </>
-                )}
+                <span>Send a Message</span>
+                <ArrowUpRight className="w-3.5 h-3.5" />
               </motion.button>
 
               <p className="text-xs text-white/75 font-light pt-2">

@@ -166,7 +166,8 @@ export const PORTFOLIO_DATA = {
     email: "kamiyesharaye@outlook.com",
     socials: [
       { name: "LinkedIn", url: "https://www.linkedin.com/in/kamiye-sharaye" },
-      { name: "GitHub", url: "https://github.com/kingksjo" }
+      { name: "GitHub", url: "https://github.com/kingksjo" },
+      { name: "Instagram", url: "https://www.instagram.com/king_ksjo", messageUrl: "https://ig.me/m/king_ksjo" }
     ],
     availability: "Available to work on products that need AI to deliver value to users"
   }

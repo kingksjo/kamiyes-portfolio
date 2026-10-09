@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
 import { useLenis } from 'lenis/react';
-import { X, Check, ArrowUpRight, Copy } from 'lucide-react';
+import { X, ArrowUpRight } from 'lucide-react';
 import { PORTFOLIO_DATA } from '@/lib/data';
 import { springSnappy } from '@/lib/motion';
 
@@ -12,7 +12,6 @@ interface ConciergeModalProps {
 }
 
 export function ConciergeModal({ onClose }: ConciergeModalProps) {
-  const [copied, setCopied] = useState(false);
   const [inquirySubject, setInquirySubject] = useState('Machine Learning & AI Projects');
   const [clientMessage, setClientMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
@@ -30,12 +29,6 @@ export function ConciergeModal({ onClose }: ConciergeModalProps) {
       window.removeEventListener('keydown', handleKeyDown);
     };
   }, [lenis, onClose]);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(PORTFOLIO_DATA.contact.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2600);
-  };
 
   const handleSendMailto = (e: React.FormEvent) => {
     e.preventDefault();
@@ -103,39 +96,6 @@ export function ConciergeModal({ onClose }: ConciergeModalProps) {
             <p className="text-sm text-[#59534E] font-light leading-relaxed">
               {PORTFOLIO_DATA.name} is open to data science roles, applied machine learning projects, and conversations about building practical data-driven products.
             </p>
-          </div>
-
-          {/* Direct Email Card */}
-          <div className="p-5 bg-[#F4F0EA] border border-[#D8CFC4] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-            <div className="space-y-1">
-              <span className="text-[10px] uppercase tracking-[0.22em] text-[#9A4D3E] font-medium">
-                Direct Email
-              </span>
-              <p className="font-serif text-lg sm:text-xl text-[#2C2724] tracking-wide">
-                {PORTFOLIO_DATA.contact.email}
-              </p>
-            </div>
-
-            <motion.button
-              onClick={handleCopyEmail}
-              id="concierge-copy-email-btn"
-              whileHover={{ y: -2, backgroundColor: '#9A4D3E' }}
-              whileTap={{ scale: 0.97 }}
-              transition={springSnappy}
-              className="inline-flex items-center justify-center gap-2 px-4 py-2.5 bg-[#2C2724] text-[#FDFBF7] text-[10px] uppercase tracking-[0.2em]"
-            >
-              {copied ? (
-                <>
-                  <Check className="w-3.5 h-3.5 text-emerald-300" />
-                  <span>Copied to Clipboard</span>
-                </>
-              ) : (
-                <>
-                  <Copy className="w-3.5 h-3.5" />
-                  <span>Copy Email</span>
-                </>
-              )}
-            </motion.button>
           </div>
 
           {/* Inquiry Form */}
@@ -215,7 +175,7 @@ export function ConciergeModal({ onClose }: ConciergeModalProps) {
                 {PORTFOLIO_DATA.contact.socials.map((soc) => (
                   <motion.a
                     key={soc.name}
-                    href={soc.url}
+                    href={soc.messageUrl ?? soc.url}
                     target="_blank"
                     rel="noopener noreferrer"
                     whileHover={{ color: '#9A4D3E' }}

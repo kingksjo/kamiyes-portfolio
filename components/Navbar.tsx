@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ArrowUpRight, Mail, Check, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { PORTFOLIO_DATA } from '@/lib/data';
 import { springSnappy } from '@/lib/motion';
 
@@ -12,13 +12,6 @@ interface NavbarProps {
 
 export function Navbar({ onOpenConcierge }: NavbarProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
-
-  const handleCopyEmail = () => {
-    navigator.clipboard.writeText(PORTFOLIO_DATA.contact.email);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2400);
-  };
 
   return (
     <header className="sticky top-0 z-40 w-full bg-[#FDFBF7]/90 backdrop-blur-md border-b border-[#D8CFC4] transition-all">
@@ -78,16 +71,6 @@ export function Navbar({ onOpenConcierge }: NavbarProps) {
 
         {/* Mobile menu button */}
         <div className="flex md:hidden items-center gap-3">
-          <motion.button
-            onClick={handleCopyEmail}
-            whileTap={{ scale: 0.88 }}
-            transition={springSnappy}
-            className="p-2 text-[#2C2724]"
-            title="Copy Email"
-            id="mobile-copy-email-btn"
-          >
-            {copied ? <Check className="w-4 h-4 text-[#9A4D3E]" /> : <Mail className="w-4 h-4" />}
-          </motion.button>
           <motion.button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             whileTap={{ scale: 0.88 }}
