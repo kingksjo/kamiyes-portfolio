@@ -37,6 +37,7 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://kamiyes-portfolio.pages.dev"),
   title: "Kamiye",
   description: `Editorial portfolio for ${PORTFOLIO_DATA.name}, ${PORTFOLIO_DATA.title}.`,
   openGraph: {
