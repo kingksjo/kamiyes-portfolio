@@ -15,6 +15,12 @@ export interface Project {
   demoUrl?: string;
 }
 
+export interface Social {
+  name: string;
+  url: string;
+  messageUrl?: string;
+}
+
 export const PORTFOLIO_DATA = {
   name: "Kamiye Sharaye",
   shortName: "Kamiye",
@@ -74,13 +80,12 @@ export const PORTFOLIO_DATA = {
       subtitle: "Sports Commentary to Podcast Service",
       lookbookNumber: "04",
       year: "2026",
-      description: "A service that turns raw sports commentary transcripts into polished 3–5 minute podcast audio.",
-      longDescription: "A Python microservice that autonomously transforms raw sports commentary transcripts into professional-grade podcast audio. It uses Google Gemini to script the episode and Vertex AI to generate the voice, and is built for Cloud Run deployment.",
+      description: "A service that turns raw sports commentary audio into polished 3–5 minute podcast episodes.",
+      longDescription: "A Python microservice that autonomously transforms raw sports commentary audio into professional-grade podcast episodes. It transcribes the audio with Speech-to-Text, uses Google Gemini to script the episode and Vertex AI to generate the voice, and is built for Cloud Run deployment.",
       tags: ["Python", "FastAPI", "Google Gemini", "Vertex AI", "Speech-to-Text", "Text-to-Speech", "Cloud Storage", "Cloud Run", "Docker"],
       disciplines: ["AI Engineering", "Software Engineering"],
       architecture: "Python service on Google Gemini and Vertex AI, containerized for Google Cloud Run with a Cloud Build pipeline and a Vercel-hosted frontend.",
       githubUrl: "https://github.com/kingksjo/sports-podcast-service",
-      demoUrl: "https://sports-podcast-service.vercel.app",
     },
     {
       id: "fake-news-detector",
@@ -124,18 +129,8 @@ export const PORTFOLIO_DATA = {
   projectsSection: {
     eyebrow: "Projects",
     title: "Work I've done",
-    intro: "Some projects i've worked on and contributed to",
+    intro: "Some projects I've worked on and contributed to",
     filters: ["All", "Machine Learning", "AI Engineering", "Software Engineering"]
-  },
-  projectsSummary: {
-    work: {
-      label: "Work I've done",
-      text: "Recommender systems, a flight-safety forecasting model, and a geospatial health access study, each taken from data to deployable output."
-    },
-    value: {
-      label: "How I've provided value",
-      text: "Stall forecasts at 0.962 AUC with a 1.4% false alarm ratio, +42% spatial access optimization, and 1,420+ facilities mapped for planning."
-    }
   },
   disciplinesSection: {
     eyebrow: "Disciplines",
@@ -168,7 +163,7 @@ export const PORTFOLIO_DATA = {
       { name: "LinkedIn", url: "https://www.linkedin.com/in/kamiye-sharaye" },
       { name: "GitHub", url: "https://github.com/kingksjo" },
       { name: "Instagram", url: "https://www.instagram.com/king_ksjo", messageUrl: "https://ig.me/m/king_ksjo" }
-    ],
+    ] satisfies Social[],
     availability: "Available to work on products that need AI to deliver value to users"
   }
 };

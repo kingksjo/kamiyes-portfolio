@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'motion/react';
 import { useLenis } from 'lenis/react';
 import { X, ArrowUpRight } from 'lucide-react';
@@ -15,6 +15,7 @@ export function ConciergeModal({ onClose }: ConciergeModalProps) {
   const [inquirySubject, setInquirySubject] = useState('Machine Learning');
   const [clientMessage, setClientMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
+  const submittedTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const lenis = useLenis();
 
@@ -30,6 +31,14 @@ export function ConciergeModal({ onClose }: ConciergeModalProps) {
     };
   }, [lenis, onClose]);
 
+  // Clear the "email client" notice if the modal unmounts first, so the
+  // delayed state update never fires on an unmounted component.
+  useEffect(() => {
+    return () => {
+      if (submittedTimer.current) clearTimeout(submittedTimer.current);
+    };
+  }, []);
+
   const handleSendMailto = (e: React.FormEvent) => {
     e.preventDefault();
     const mailto = `mailto:${PORTFOLIO_DATA.contact.email}?subject=${encodeURIComponent(
@@ -37,7 +46,8 @@ export function ConciergeModal({ onClose }: ConciergeModalProps) {
     )}&body=${encodeURIComponent(clientMessage || `Hi ${PORTFOLIO_DATA.shortName},\n\nI would like to discuss...`)}`
     window.location.href = mailto;
     setSubmitted(true);
-    setTimeout(() => {
+    if (submittedTimer.current) clearTimeout(submittedTimer.current);
+    submittedTimer.current = setTimeout(() => {
       setSubmitted(false);
     }, 4000);
   };
@@ -58,6 +68,9 @@ export function ConciergeModal({ onClose }: ConciergeModalProps) {
         exit={{ opacity: 0, y: 24 }}
         transition={springSnappy}
         data-lenis-prevent
+        role="dialog"
+        aria-modal="true"
+        aria-label="Contact form"
         className="relative w-full max-w-2xl max-h-[92vh] overflow-y-auto bg-[#FDFBF7] border border-[#D8CFC4] shadow-2xl z-10 flex flex-col"
       >
         

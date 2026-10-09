@@ -50,6 +50,9 @@ export function ProjectDossierModal({
         exit={{ opacity: 0, y: 24 }}
         transition={springSnappy}
         data-lenis-prevent
+        role="dialog"
+        aria-modal="true"
+        aria-label={`${project.name} project details`}
         className="relative w-full max-w-5xl max-h-[92vh] overflow-y-auto bg-[#FDFBF7] border border-[#D8CFC4] shadow-2xl z-10 flex flex-col"
       >
         

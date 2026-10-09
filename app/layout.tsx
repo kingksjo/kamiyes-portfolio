@@ -37,16 +37,16 @@ const inter = localFont({
 });
 
 export const metadata: Metadata = {
-  title: `${PORTFOLIO_DATA.name} — ${PORTFOLIO_DATA.title}`,
+  title: "Kamiye",
   description: `Editorial portfolio for ${PORTFOLIO_DATA.name}, ${PORTFOLIO_DATA.title}.`,
   openGraph: {
-    title: `${PORTFOLIO_DATA.name} — ${PORTFOLIO_DATA.title}`,
+    title: "Kamiye",
     description: `Editorial portfolio for ${PORTFOLIO_DATA.name}, ${PORTFOLIO_DATA.title}.`,
     type: "website",
   },
   twitter: {
     card: "summary_large_image",
-    title: `${PORTFOLIO_DATA.name} — ${PORTFOLIO_DATA.title}`,
+    title: "Kamiye",
     description: `Editorial portfolio for ${PORTFOLIO_DATA.name}, ${PORTFOLIO_DATA.title}.`,
   },
 };

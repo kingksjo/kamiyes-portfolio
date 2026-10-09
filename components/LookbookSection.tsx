@@ -57,6 +57,15 @@ function LookbookCard({ project, onSelect }: { project: Project; onSelect: (proj
       variants={cardVariants}
       whileHover="hover"
       onClick={() => onSelect(project)}
+      onKeyDown={(e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          onSelect(project);
+        }
+      }}
+      tabIndex={0}
+      role="button"
+      aria-label={`View details for ${project.name}`}
       id={`project-card-${project.id}`}
       className="flex flex-col cursor-pointer"
     >
@@ -197,7 +206,11 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
         </Reveal>
 
         {/* Gallery View: Large Vertical Lookbook Plates */}
-        {viewMode === 'gallery' ? (
+        {filteredProjects.length === 0 ? (
+          <p className="pt-16 sm:pt-20 text-sm text-[#59534E] font-light">
+            No projects under this filter yet.
+          </p>
+        ) : viewMode === 'gallery' ? (
           <motion.div
             key={`gallery-${activeFilter}`}
             variants={gridVariants}
@@ -217,6 +230,15 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
               <motion.div
                 key={project.id}
                 onClick={() => onSelectProject(project)}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onSelectProject(project);
+                  }
+                }}
+                tabIndex={0}
+                role="button"
+                aria-label={`View details for ${project.name}`}
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, margin: '-60px' }}
