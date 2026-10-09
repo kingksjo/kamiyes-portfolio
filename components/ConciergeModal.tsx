@@ -12,7 +12,7 @@ interface ConciergeModalProps {
 }
 
 export function ConciergeModal({ onClose }: ConciergeModalProps) {
-  const [inquirySubject, setInquirySubject] = useState('Machine Learning & AI Projects');
+  const [inquirySubject, setInquirySubject] = useState('Machine Learning');
   const [clientMessage, setClientMessage] = useState('');
   const [submitted, setSubmitted] = useState(false);
 
@@ -113,12 +113,9 @@ export function ConciergeModal({ onClose }: ConciergeModalProps) {
                 onChange={(e) => setInquirySubject(e.target.value)}
                 className="w-full px-4 py-3 bg-[#FDFBF7] border border-[#D8CFC4] text-sm text-[#2C2724] focus:outline-none focus:border-[#9A4D3E]"
               >
-                <option value="Machine Learning & AI Projects">Machine Learning & AI Projects</option>
-                <option value="Data Science Roles & Opportunities">Data Science Roles & Opportunities</option>
-                <option value="Predictive Modeling & Telemetry">Predictive Modeling & Telemetry</option>
-                <option value="Recommender Systems & Search">Recommender Systems & Search</option>
-                <option value="Spatial & Healthcare Analytics">Spatial & Healthcare Analytics</option>
-                <option value="General Conversation / Collaboration">General Conversation / Collaboration</option>
+                <option value="Machine Learning">Machine Learning</option>
+                <option value="AI Engineering">AI Engineering</option>
+                <option value="Software Engineering">Software Engineering</option>
               </select>
             </div>
 

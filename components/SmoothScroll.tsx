@@ -19,7 +19,8 @@ export function SmoothScroll({ children }: SmoothScrollProps) {
           // Instant (unsmoothed) scrolling for users who prefer reduced motion.
           lerp: prefersReducedMotion ? 1 : 0.09,
           // Animate in-page anchor links (#lookbook, #disciplines, #contact).
-          anchors: true,
+          // Offset clears the sticky header (h-16 on mobile, h-20 on larger screens).
+          anchors: { offset: -80 },
         }}
       >
         {children}

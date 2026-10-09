@@ -127,7 +127,7 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
     : PORTFOLIO_DATA.selectedProjects.filter(p => p.disciplines.includes(activeFilter));
 
   return (
-    <section id="projects" className="w-full py-24 sm:py-32 lg:py-44 border-b border-[#D8CFC4]">
+    <section id="projects" className="w-full pt-24 sm:pt-32 lg:pt-44 pb-10 sm:pb-12 lg:pb-14 border-b border-[#D8CFC4]">
       {/* Anchor alias for backward compatibility */}
       <div id="lookbook" className="hidden" />
       <div className="max-w-7xl mx-auto px-4 sm:px-8 lg:px-12">

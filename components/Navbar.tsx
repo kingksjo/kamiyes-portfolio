@@ -99,15 +99,6 @@ export function Navbar({ onOpenConcierge }: NavbarProps) {
           </div>
           <div className="flex flex-col space-y-4">
             <motion.a
-              href="#hero"
-              onClick={() => setMobileMenuOpen(false)}
-              whileHover={{ color: '#9A4D3E', x: 4 }}
-              transition={springSnappy}
-              className="font-serif text-2xl text-[#2C2724]"
-            >
-              Introduction
-            </motion.a>
-            <motion.a
               href="#projects"
               onClick={() => setMobileMenuOpen(false)}
               whileHover={{ color: '#9A4D3E', x: 4 }}
