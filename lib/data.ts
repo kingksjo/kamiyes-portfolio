@@ -114,6 +114,13 @@ export const PORTFOLIO_DATA = {
       githubUrl: "https://github.com/kingksjo/luxe-voice-retail",
     }
   ],
+  communitySection: {
+    eyebrow: "Community",
+    title: "Leading the Colab ML community",
+    body: "I lead the Colab ML community, where we build a variety of projects and research on foundations.",
+    image: "/community-portrait.jpg",
+    imageAlt: "Kamiye Sharaye leading a discussion with members of the Colab ML community",
+  },
   projectsSection: {
     eyebrow: "Projects",
     title: "Work I've done",

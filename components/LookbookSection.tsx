@@ -274,12 +274,6 @@ export function LookbookSection({ onSelectProject }: LookbookSectionProps) {
           </div>
         )}
 
-        {/* Section Colophon Note */}
-        <Reveal className="mt-20 pt-10 border-t border-[#D8CFC4]/60 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 text-[10px] uppercase tracking-[0.22em] text-[#59534E]">
-          <span>Documented Case Studies</span>
-          <span>Open to collaboration on applied machine learning projects</span>
-        </Reveal>
-
       </div>
     </section>
   );

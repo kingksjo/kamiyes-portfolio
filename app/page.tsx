@@ -6,6 +6,7 @@ import { Navbar } from '@/components/Navbar';
 import { Hero } from '@/components/Hero';
 import { LookbookSection } from '@/components/LookbookSection';
 import { EditorialDisciplines } from '@/components/EditorialDisciplines';
+import { CommunitySection } from '@/components/CommunitySection';
 import { Footer } from '@/components/Footer';
 import { ProjectDossierModal } from '@/components/ProjectDossierModal';
 import { ConciergeModal } from '@/components/ConciergeModal';
@@ -37,6 +38,9 @@ export default function HomePage() {
       <LookbookSection
         onSelectProject={(project) => setSelectedProject(project)}
       />
+
+      {/* Community Section */}
+      <CommunitySection />
 
       {/* Footer */}
       <Footer
